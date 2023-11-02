@@ -4,11 +4,13 @@ const port = 3000;
 
 const goodsRouter = require("./routes/goods.js");
 const cartsRouter = require("./routes/carts.js");
+const postRouter = require("./routes/posts.js");
+const commentRouter = require("./routes/comments.js");
 const connect = require('./schemas');
 connect();
 
 app.use(express.json());
-app.use("/api",goodsRouter,cartsRouter);
+app.use("/api",goodsRouter,cartsRouter,postRouter,commentRouter);
 
 
 app.post('/', (req, res) => {

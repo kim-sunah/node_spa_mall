@@ -53,7 +53,9 @@ router.post("/goods", async (req, res) => {
 });
 
 //상품 목록 조회 API
-router.get("/goods", (req, res) => {
+router.get("/goods", async (req, res) => {
+    const goods = await Goods.find({}).sort({"goodsId":-1});
+    console.log(goods[0].goodsId)
     res.json({ goods: goods });
 });
 module.exports = router;
