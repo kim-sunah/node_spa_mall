@@ -38,7 +38,6 @@ router.put("/posts/:_postsId/comments/:_commentId", async (req, res) => {
 router.delete("/posts/:_postsId/comments/:_commentId", async (req, res) => {
     const { _commentId } = req.params;
     const existsCarts = await Comments.find({ commentsId: Number(_commentId) });
-    .log(existsCarts);
     if (existsCarts.length) {
         await Comments.deleteOne({ commentsId: Number(_commentId) })
     }
